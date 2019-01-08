@@ -4,7 +4,19 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    // состояние (данные)
+    result: []
+  },
   mutations: {},
-  actions: {}
+  actions: {
+    // функции для запроса с сервера
+    search({state, dispatch, commit}, query) {
+      // {state, dispatch, commit} - по=умолчанию
+      // state - состояние,
+      // dispatch - для запуска action асинхронно
+      // commit - для запуска мутаций
+
+    }
+  }
 });
