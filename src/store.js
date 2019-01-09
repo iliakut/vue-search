@@ -9,7 +9,6 @@ export default new Vuex.Store({
     result: []
   },
   mutations: {},
-  
   actions: {
     // функции для запроса с сервера
     search({state, dispatch, commit}, query) {
