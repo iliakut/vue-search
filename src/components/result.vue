@@ -12,12 +12,11 @@
 </template>
 
 <script>
-import store from "@/store";
 export default {
   name: "result",
   computed: {
     results() {
-      return store.getters.results;
+      return this.$store.getters.results;
     }
   }
 };

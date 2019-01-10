@@ -12,13 +12,14 @@
 <script>
 import result from '@/components/result'
 import search from '@/components/search'
-
+import store from "@/store";
 export default {
   name: 'App',
   components: {
     result,
-    search
-  }
+    search, // глобальная привязка store
+  },
+  store
 };
 </script>
 

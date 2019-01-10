@@ -7,19 +7,31 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     // состояние (данные)
-    result: []
+    result: [],
+    count: 0
   },
   getters: {
+    // отредактированные состояния
     results(state) {
       return state.result.map(item => {
         item.url = "https://ru.wikipedia.org/wiki/" + item.title;
         return item;
       });
+    },
+    doubledCount: state => {
+      return state.count * 2;
+    },
+    doubledDouble: (state, getters) => {
+      return getters.doubledCount * 2;
     }
+    //Геттеры доступны в объекте store.getters
   },
   mutations: {
     set(state, { type, items }) {
       state[type] = items;
+    },
+    increment(state) {
+      state.count++;
     }
   },
   actions: {
