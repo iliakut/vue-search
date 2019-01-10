@@ -12,7 +12,7 @@ export default new Vuex.Store({
   getters: {
     results(state) {
       return state.result.map(item => {
-        item.url = "htttps://ru.wikipedia.org/wiki/" + item.title;
+        item.url = "https://ru.wikipedia.org/wiki/" + item.title;
         return item;
       });
     }
