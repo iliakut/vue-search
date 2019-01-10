@@ -32,6 +32,11 @@ export default new Vuex.Store({
     },
     increment(state) {
       state.count++;
+    },
+    decrement(state, payload) {
+      // n - payload дополнительный параметр - может быть как единсвенная переменная
+      // payload - payload дополнительный параметр  - может быть как объект
+      state.count -= payload.n;
     }
   },
   actions: {

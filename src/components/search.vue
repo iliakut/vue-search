@@ -3,13 +3,15 @@
     <input type="text" v-model="query" />
     <button @click="search()">Search</button>
     <span v-if="warningEmptySearch"> Введите запрос</span>
-    <button @click="inc">+</button> <span> {{ count }}</span>
+    <button @click="this.increment">+</button> <span> {{ count }} </span>
+    <button @click="dec">-</button>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
 import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
 export default {
   name: "search",
   data: function() {
@@ -30,8 +32,9 @@ export default {
     searchEmpty() {
       return this.query === "";
     },
-    inc() {
-      this.$store.commit("increment");
+    ...mapMutations(["increment"]), // используя ...map
+    dec() {
+      this.$store.commit("decrement", { n: 3 });
     }
   },
   computed: {
@@ -41,5 +44,4 @@ export default {
   }
 };
 </script>
-
 <style scoped></style>
