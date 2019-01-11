@@ -40,7 +40,23 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    // функции для запроса с сервера
+    // функции для запроса с сервера, инициации мутаций
+    // могут быть асинхронными, в отличии от мутаций
+    // action может обрабатывать promise
+    increment({ commit }, payload) {
+      // {state, dispatch, commit} - деструктуризация
+      // state - состояния
+      // commit - для запуска мутаций
+      // dispatch - для запуска actions
+      // payload - дополнительные входные параметры
+      console.log(payload.message);
+      commit("increment");
+    },
+    doubleIncrementAsync({ dispatch }) {
+      setTimeout(() => {
+        dispatch("increment", { message: "запущен action" });
+      }, 500);
+    },
     search({ commit }, query) {
       // {state, dispatch, commit} - по=умолчанию
       // state - состояние,
